@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+}
+
+/* NAVBAR */
+/* Newsletter */
+
+.newsletter {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: #1C490C;
+    border-radius: 0px 0px 5px 5px;
+    top: 0;
+    width: 100vw;
+    height: 28px;
+}
+
+.newsletter span {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.newsletter a {
+    margin-right: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-close {
+    position: absolute;
+    right: 25px;
+}
+
+/* Newsletter */
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .navbar-features {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -95px;
+    margin-right: 5px;
+    display: flex;
+    font-weight: 500;
+    color: black;
+    list-style: none;
+}
+
+.navbar-features label, img {
+    cursor: pointer;
+}
+
+.navbar-features li:not(:first-child) {
+    margin-left: 20px;
+}
+
+.navbar .navbar-features a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar .search {
+    background-color: #d7f0ce79;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 350px;
+    height: 30px;
+}
+
+.search #search {
+    background: transparent;
+    margin-left: 3px;
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+#search:focus {
+    outline: none;
+}
+
+.navbar .navbar-profile {
+    margin-left: -50px;
+    margin-right: 40px;
+}
+
+/* END NAVBAR */
+/* LOGIN */
+
+.container-login {
+    z-index: 3;
+    background-color: none;
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-login .close {
+    width: 100vw;
+    height: 100vh;
+    background: none;
+    backdrop-filter: blur(2px);
+}
+
+.container-login .login {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    width: 460px;
+    height: 465px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login img {
+    margin-top: 25px;
+}
+
+.login input {
+    outline: none;
+}
+
+.user {
+    margin-top: 20px;
+    border: 1px solid black;
+    border-color: #184608;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.404);
+    width: 360px;
+    height: 53px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.user img {
+    width: 22px;
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.user .lock {
+    width: 28px;
+    margin-right: 7px;
+    margin-left: 14px;
+}
+
+.user input {
+    border: none;
+    border-radius: 12px;
+    padding-right: 5px;
+    height: 100%;
+    width: 90%;
+    font-size: medium;
+}
+
+.forget {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    width: 360px;
+    height: 33px;
+}
+
+.forget .check {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: white;
+    margin-left: 1px;
+    margin-right: 3px;
+    border: 1px solid #184608;
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.forget .check:checked {
+    background-color: #296d13;
+}
+
+.forget label {
+    font-size: 14px;
+    cursor: pointer;
+    color: #184608;
+
+}
+
+.forget a {
+    margin-left: 55px;
+    font-size: 14px;
+    color: #184608;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    cursor: pointer;
+    margin-top: 30px;
+    width: 240px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(right, #184608, #659b08);
+    color: #fff;
+    font-size: medium;
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.356);
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: .5s ease-out;
+}
+
+.btn-login:hover {
+    background: -webkit-linear-gradient(left, #184608, #659b08);
+    box-shadow: inset 1px 5px 5px rgba(0, 0, 0, 0.356);
+}
+
+.register {
+    margin-top: 18px;
+    font-size: 16px;
+    color: #184608;
+    text-decoration: none;
+}
+
+/* END LOGIN */
+/* BASKET */
+
+.basket {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    background-color: #d7f0ce8c;
+    border-radius: 5px;
+    box-shadow: 1px 3px 3px black;
+    width: 350px;
+    height: 300px;
+    transition: 0.5s ease;
+    transform: translateX(110%);
+}
+
+/* END BASKET */
+/* CAROUSEL */
+
+.carousel {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.carousel-inner {
+    border-radius: 5px;
+}
+
+.btn-carousel {
+    position: absolute;
+    display: flex;
+    top: 25px;
+    left: 45px;
+    width: 115px;
+    height: 50px;
+}
+
+.btn-carousel .btn {
+    width: 50%;
+    background-color: #fff;
+}
+
+.btn-carousel .prev {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.btn-carousel .next {
+    border-radius: 0px 5px 5px 0px;
+}
+
+/* END CAROUSEL */
+/* CATEGORIES */
+
+.categories{
+    margin-top: 35px;
+}
+
+.categories h2 {
+    color: black;
+    font-weight: 700;
+}
+
+.categories .container-md {
+    border: 1px solid black;
+    display: flex;
+}
+
+.col {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col .btn-categories {
+    width: 100px;
+    height: 100px;
+    background-color: #e0f3d9;
+    border: none;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.btn-categories img {
+    transition: .6s ease-out;
+}
+
+.btn-categories:hover {
+    transform: rotate(90deg);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-categories:hover img {
+    transform: rotate(-90deg);
+    width: 65px;
+    height: 65px;
+}
+
+.col span {
+    color: black;
+    font-weight: 500;
+}
