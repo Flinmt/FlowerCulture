@@ -328,7 +328,7 @@ body {
 }
 
 .col {
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -362,4 +362,96 @@ body {
 .col span {
     color: black;
     font-weight: 500;
+}
+
+/* WARRANTY */
+
+.warranty {
+    position: relative;
+    border-radius: 10px;
+    background-color: #f0eeee;
+    margin-top: 45px;
+}
+
+.warranty .garantee {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+}
+
+.warranty h3 {
+    color: black;
+    font-weight: 700;
+    margin-left: 25px;
+}
+
+.warranty .col {
+    margin-top: 40px;
+}
+
+.warranty .mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    border-radius: 5px;
+    background-color: #e0f3d9;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    transition: .4s;
+}
+
+.mark img {
+    transition: .4s ease-out;
+    cursor: default;
+}
+
+.mark:hover img {
+    transform: rotateY(180deg);
+}
+
+.warranty .content {
+    margin-left: 55px;
+}
+
+.warranty .second ~ .third {
+    margin: 0;
+}
+
+.warranty .third {
+    margin-right: 35px;
+}
+
+/* END WARRANTY */
+/* PRODUCTS */
+
+.products .card {
+    background-color: #f0eeee;
+}
+
+.products .card-body {
+    position: relative;
+}
+
+.products .cart {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    top: 10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: #1C490C;
+    transition: .3s ease;
+}
+
+.cart img {
+    transition: .4s;
+}
+
+.cart:hover img {
+    transform: rotateY(180deg);
 }
