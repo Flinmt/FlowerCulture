@@ -1,10 +1,10 @@
 <?php
 function connect()
 {
-    $hostname = "localhost";
-    $database = "flowerculture";
-    $user = "root";
-    $password = "";
+    $hostname = "db4free.net";
+    $database = "flower";
+    $user = "flowerculture";
+    $password = "flowerculture";
 
 
     $conn = $mysqli = new mysqli($hostname, $user, $password, $database);

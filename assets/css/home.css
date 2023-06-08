@@ -5,7 +5,7 @@
 body {
     width: 100vw;
     overflow-x: hidden;
-    background-color: #f5f5f5;
+    background-color: #fafafa;
 }
 
 /* NAVBAR */
@@ -236,18 +236,18 @@ img {
 }
 
 .btn-login {
-    cursor: pointer;
-    margin-top: 30px;
-    width: 240px;
-    height: 45px;
-    border: none;
-    border-radius: 10px;
     background: -webkit-linear-gradient(right, #184608, #659b08);
-    color: #fff;
-    font-size: medium;
+    border-radius: 10px;
+    border: none;
     box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.356);
+    color: #fff;
+    cursor: pointer;
+    font-size: medium;
+    height: 45px;
+    margin-top: 30px;
     text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
     transition: .5s ease-out;
+    width: 240px;
 }
 
 .btn-login:hover {
@@ -263,9 +263,24 @@ img {
 }
 
 /* END LOGIN */
+/* BASKET */
+
+.basket {
+    background-color: #fafafa;
+    opacity: 80%;
+    position: fixed;
+    right: 0;
+    transform: translateX(110%);
+    transition: 0.4s ease;
+    width: 350px;
+    z-index: 5;
+}
+
+/* END BASKET */
 /* CAROUSEL */
 
 .carousel {
+/*Box model stuff*/
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -273,7 +288,6 @@ img {
 
 .carousel-inner {
     box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
-    ;
     border-radius: 5px;
 }
 

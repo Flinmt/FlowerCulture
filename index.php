@@ -2,66 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
+    <?php include "./includes/header.php" ?>
 </head>
 
 <body>
-    <header>
-        <nav class="newsletter" data-bs-theme="dark" id="newsletter">
-            <img src="./assets/img/message.svg" alt="news" width="18" height="18">
-            <span>Subscribe to our newsletter and get <b>20% OFF</b> on your first purchase.</span>
-            <a href="#">Sign me up now</a>
-            <button type="button" class="btn-close" aria-label="Close" onclick="newsLetterClose()"></button>
-        </nav>
-        <nav class="navbar">
-            <a class="navbar-brand" href="#">
-                <img src="./assets/img/logo.svg" alt="Logo" width="55" height="55">
-            </a>
-            <ul class="navbar-features">
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="search">
-                <img src="./assets/img/glass.svg" alt="search" width="25" height="22">
-                <input name="search" id="search" placeholder="Search for...">
-            </div>
-            <a type="button" class="navbar-basket" onclick="basketShowHide()">
-                <img src="./assets/img/basket.svg" alt="Logo" width="35" height="28">
-            </a>
-            <a type="button" class="navbar-profile" onclick="showLogin()">
-                <img src="./assets/img/profile.svg" alt="Logo" width="35" height="28">
-            </a>
-        </nav>
-    </header>
-
-    <div class="container-login" id="Login">
-        <div class="close" onclick="closeLogin()"></div>
-        <form class="login" onsubmit="">
-            <img src="./assets/img/logo.svg" alt="logo" width="82" height="85">
-            <div class="user">
-                <img src="./assets/img/user.svg" alt="Icone de Usuário">
-                <input type="text" placeholder="User" required>
-            </div>
-            <div class="user">
-                <img class="lock" src="./assets/img/Lock.svg" alt="Senha Lock">
-                <input type="password" placeholder="Password" required>
-            </div>
-            <div class="forget">
-                <input class="check" type="checkbox" id="manter">
-                <label for="manter"><strong>Keep me connected</strong></label>
-                <a href="#"><strong>Forgot password?</strong></a>
-            </div>
-            <button class="btn-login" type="submit">LOGIN</button>
-            <a class="register" href="#"><strong>New here? Sign up now!</strong></a>
-        </form>
-    </div>
+    <?php include "./includes/navbar.php" ?>
 
     <div id="carousel" class="carousel slide container-lg carousel-dark" data-bs-ride="carousel" data-bs-pause="hover">
         <div class="carousel-indicators">
@@ -177,7 +122,7 @@
 
             if ($products != null) {
                 $col = 0;
-                foreach ($products as $product) {
+                foreach ($products as $key => $product) {
                     if ($col >= 4) {
                         break;
                     }
@@ -189,7 +134,7 @@
                             <div class="card h-100" style="width: 15rem;">
                                 <a href="#"><img src="<?php echo $product->getImage(); ?>" class="card-img-top" alt="..." style="height: 180px;"></a>
                                 <div class="card-body">
-                                    <div class="cart"><img src="./assets/img/cart.svg" width="22" alt="cart"></div>
+                                    <a type="button" class="cart"><img src="./assets/img/cart.svg" width="22" alt="cart"></a>
                                     <p class="card-text" style="margin-top: -12px;"><strong><?php echo $product->getName(); ?></strong></p>
                                     <p class="card-text" style="margin-top: -18px; margin-bottom: -10px;"><strong>R$ <?php echo $product->getPrice(); ?></strong></p>
                                 </div>
