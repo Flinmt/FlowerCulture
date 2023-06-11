@@ -318,6 +318,7 @@ img {
 /* CAROUSEL */
 
 .carousel {
+/*Box model stuff*/
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
