@@ -1,7 +1,7 @@
 <?php
 
 include "./lib/models/products.php";
-include "./lib/database/connection.php";
+include_once ("./lib/database/connection.php");
 
 class ProductsRepository
 {

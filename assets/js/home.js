@@ -23,7 +23,7 @@ function basketShowHide() {
         document.getElementById("basket").style.transform = "translateX(0%)";
         hide = false;
     } else {
-        document.getElementById("basket").style.transform = "translateX(110%)"
+        document.getElementById("basket").style.transform = "translateX(115%)"
         hide = true;
     }
 }
@@ -53,4 +53,5 @@ async function productsShowHide() {
         show = false;
     }
 }
+
 
