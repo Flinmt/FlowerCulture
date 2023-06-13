@@ -65,11 +65,11 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 
     <div class="container-login" id="Login">
         <div class="close" onclick="closeLogin()"></div>
-        <form class="login" action="" method="POST">
+        <form class="login" id="logged" action="" method="POST">
             <img src="./assets/img/logo.svg" alt="logo" width="82" height="85">
             <div class="user">
                 <img src="./assets/img/user.svg" alt="Icone de Usuário">
-                <input type="text" placeholder="User" name="email" required>
+                <input type="text" placeholder="Email" name="email" required>
             </div>
             <div class="user">
                 <img class="lock" src="./assets/img/Lock.svg" alt="Senha Lock">
@@ -81,7 +81,24 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                 <a href="#"><strong>Forgot password?</strong></a>
             </div>
             <button class="btn-login" type="submit">LOGIN</button>
-            <a class="register" href="#"><strong>New here? Sign up now!</strong></a>
+            <a class="register" type="button" onclick="showRegister()"><strong>New here? Sign up now!</strong></a>
+        </form>
+        <form class="login registered" id="registered" action="" method="POST">
+            <img src="./assets/img/logo.svg" alt="logo" width="82" height="85">
+            <div class="user">
+                <img src="./assets/img/user.svg" alt="Icone de Usuário">
+                <input type="text" placeholder="Email" name="Remail" required>
+            </div>
+            <div class="user">
+                <img class="lock" src="./assets/img/Lock.svg" alt="Senha Lock">
+                <input type="password" placeholder="Password" name="Rpassword" required>
+            </div>
+            <div class="user">
+                <img class="lock" src="./assets/img/Lock.svg" alt="Senha Lock">
+                <input type="password" placeholder="Confirm Password" name="RCpassword" required>
+            </div>
+            <button class="btn-login" type="submit">REGISTER</button>
+            <a class="register" type="button" onclick="showRegister()"><strong>Already registered? Log in by clicking here!</strong></a>
         </form>
     </div>
 
@@ -95,10 +112,13 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
             </div>
             <?php
         } else {
+            $total = 0;
             foreach ($_SESSION['basket'] as $key => $product) {
             ?>
                 <div class="card mb-3" style="max-width: 540px; margin-top: 10px;">
-                <a class="remove" href="?remove=<?php echo $key ?>"><img src="./assets/img/Trash.svg" width="28" height="28" alt="trash"></a>
+                    <a class="remove" href="?remove=<?php echo $key ?>"><img src="./assets/img/Trash.svg" width="28" height="28" alt="trash"></a>
+                    <a class="remove add" href="?addone=<?php echo $key ?>"><img src="./assets/img/add.svg" width="28" height="28" alt="trash"></a>
+                    <a class="remove one" href="?removeone=<?php echo $key ?>"><img src="./assets/img/rmv.svg" width="28" height="28" alt="trash"></a>
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="data:image/jpeg;base64,<?php echo base64_encode($product['img']); ?>" style="height: 120px; width: 120px" class="img-fluid rounded-start" alt="...">
@@ -106,28 +126,59 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $product['name'] ?></h5>
-                                <p class="card-text"><small class="text-body-secondary"><strong> R$ <?php echo number_format($product['price']*$product['amount'], 2) ?></strong></small></p>
+                                <p class="card-text"><small class="text-body-secondary"><strong> R$ <?php echo number_format($product['price'] * $product['amount'], 2) ?></strong></small></p>
                                 <p class="card-text" style="margin-top: -20px;"><small class="text-body-secondary"><strong> Qty: <?php echo $product['amount'] ?></strong></small></p>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php
+                $total += $product['price'] * $product['amount'];
             }
             ?>
+            <div class="total">
+                <span>
+                    <?php echo "Total: R$ " . number_format($total, 2); ?>
+                </span>
+                <a href="#"><button class="purchase">Purchase</button></a>
+            </div>
         <?php
         }
         ?>
     </div>
 
     <?php
-    if (isset($_GET['remove'])) {
-        $idProduct = (int) $_GET['remove'];
+    if (isset($_GET['addone'])) {
+        $idProduct = (int) $_GET['addone'];
+
+        if (isset($_SESSION['basket'][$idProduct]['amount'])) {
+            $_SESSION['basket'][$idProduct]['amount']++;
+        }
+
+        unset($_GET['addone']);
+        ob_end_clean();
+        header("Location: index.php");
+    }
+    if (isset($_GET['removeone'])) {
+        $idProduct = (int) $_GET['removeone'];
 
         if (isset($_SESSION['basket'][$idProduct]['amount'])) {
             if ($_SESSION['basket'][$idProduct]['amount'] > 1) {
                 $_SESSION['basket'][$idProduct]['amount']--;
             } else {
+                unset($_SESSION['basket'][$idProduct]);
+            }
+        }
+
+        unset($_GET['removeone']);
+        ob_end_clean();
+        header("Location: index.php");
+    }
+    if (isset($_GET['remove'])) {
+        $idProduct = (int) $_GET['remove'];
+
+        if (isset($_SESSION['basket'][$idProduct]['amount'])) {
+            if ($_SESSION['basket'][$idProduct]['amount'] >= 1) {
                 unset($_SESSION['basket'][$idProduct]);
             }
         }
@@ -140,7 +191,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/home.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

@@ -14,6 +14,26 @@ function closeLogin() {
     document.getElementById("Login").style.display = "none";
 }
 
+var showRegistered = false;
+
+async function showRegister() {
+
+    if (showRegistered == false) {
+        document.getElementById("logged").style.transform = "translate(50%, -50%)";
+        await esperar(500);
+        document.getElementById("logged").style.zIndex = "1";
+        document.getElementById("logged").style.transform = "translate(-50%, -50%)";
+        showRegistered = true;
+
+    } else {
+        document.getElementById("logged").style.transform = "translate(50%, -50%)";
+        await esperar(500);
+        document.getElementById("logged").style.zIndex = "3";
+        document.getElementById("logged").style.transform = "translate(-50%, -50%)";
+        showRegistered = false;
+    }
+
+}
 // Basket
 
 var hide = true;
