@@ -141,7 +141,7 @@ if (!isset($_SESSION['user'])) {
             ?>
                         <div class="col">
                             <div class="card h-100" style="width: 15rem;">
-                                <a href="#"><img src="data:image/jpeg;base64,<?php echo base64_encode($product->getImage()); ?>" class="card-img-top" alt="..." style="height: 180px;"></a>
+                                <a href="?detail=<?php echo $key ?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($product->getImage()); ?>" class="card-img-top" alt="..." style="height: 180px;"></a>
                                 <div class="card-body">
                                     <a href="?add=<?php echo $key ?>" class="cart"><img src="./assets/img/cart.svg" width="22" alt="cart"></a>
                                     <p class="card-text" style="margin-top: -12px;"><strong><?php echo $product->getName(); ?></strong></p>
@@ -175,7 +175,7 @@ if (!isset($_SESSION['user'])) {
                 ?>
                         <div class="col">
                             <div class="card h-100" style="width: 15rem;">
-                                <a href="#"><img src="data:image/jpeg;base64,<?php echo base64_encode($product->getImage()); ?>" class="card-img-top" alt="..." style="height: 180px;"></a>
+                                <a href="?detail=<?php echo $key ?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($product->getImage()); ?>" class="card-img-top" alt="..." style="height: 180px;"></a>
                                 <div class="card-body">
                                     <a href="?add=<?php echo $key ?>" class="cart"><img src="./assets/img/cart.svg" width="22" alt="cart"></a>
                                     <p class="card-text" style="margin-top: -12px;"><strong><?php echo $product->getName(); ?></strong></p>
@@ -214,6 +214,23 @@ if (!isset($_SESSION['user'])) {
         unset($_GET['add']);
         ob_end_clean();
         header("Location: index.php");
+    }
+
+    if (isset($_GET['detail'])) {
+        $idProduct = (int) $_GET['detail'];
+
+        if (isset($products[$idProduct])) {
+            $_SESSION['detail'] = array(
+                'key' => $idProduct,
+                'amount' => $products[$idProduct]->getAmount(),
+                'name' => $products[$idProduct]->getName(),
+                'price' => $products[$idProduct]->getPrice(),
+                'img' => $products[$idProduct]->getImage()
+            );
+        }
+        unset($_GET['detail']);
+        ob_end_clean();
+        header("Location: detail.php");
     }
     ?>
 
@@ -255,45 +272,7 @@ if (!isset($_SESSION['user'])) {
         <button type="submit" class="sign">Sign me up <img src="./assets/img/warrow.svg" width="18" alt="arrow"></button>
     </div>
 
-    <footer>
-        <div class="flower">
-            <img src="./assets/img/logo.svg" alt="logo">
-            <p style="color: rgba(0, 0, 0, 0.555); font-size: 16; margin-top: 5px;">
-                The online flower shop for those who <br> don't have time to waste.
-            </p>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h5>Categories</h5>
-                <ul>
-                    <li>Bouquets</li>
-                    <li>Arrangements</li>
-                    <li>Plants</li>
-                    <li>flowers</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h5>Contact</h5>
-                <ul>
-                    <li>Phone</li>
-                    <li>Email</li>
-                    <li>Adress</li>
-                    <li>Box</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h5>About Us</h5>
-                <ul>
-                    <li>History</li>
-                    <li>Mission</li>
-                    <li>Vision</li>
-                    <li>Values</li>
-                </ul>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <p class="right">All rights reserved - Flor & Cultura</p>
-    </footer>
+    <?php include_once "./includes/footer.php" ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>

@@ -1,158 +1,141 @@
 /* geral */
-*{
-  padding: 0;
+* {
   margin: 0;
-}
-.row-conteudo{
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-}
-.col-esquerda{
-  margin-left: 7vw;
-}
-.col-direita{
-  margin-right: 7vw;
-}
-/* retirar */
-.shipping, .payment, .itens, .resume,.finish{
-  border: 1px solid rgba(0, 0, 0, 0.226);
-  border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 0;
 }
 
-.resume{
-  height: 85%;
+.buy {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 90vw;
 }
-.coupom{
-  height: 10%;
+
+.buy .details {
+  width: 60%;
 }
-.finish{
-  height: 10%;
+
+.details .shipping-payment {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: black;
+  margin-bottom: 15px;
+  padding-bottom: 30px;
+  position: relative;
+  width: 100%;
 }
-/* Shipping */
-.shipping{
-  height: 25%;
+
+.dividern {
+  border: 1px solid rgba(0, 0, 0, 0.301);
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
 }
-.title-shipping{
-  margin-left: 1.5vw;
-  margin-top: 0.5vw;
+
+.shipping-payment h4 {
+  margin-left: 15px;
+  margin-top: 5px;
 }
-.endereço{
-  margin: 1.3vw;
-  /* border: 2px solid black; */
+
+.shipping-payment span {
+  color: rgba(20, 20, 20, 0.849);
+  margin-left: 20px;
+}
+
+.shipping-payment .change {
+  background-color: #719A62;
+  border-radius: 5px;
+  border: none;
+  bottom: 25px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  position: absolute;
+  right: 35px;
+}
+
+.shipping-payment a {
+  margin-left: 20px;
+}
+
+.shipping-payment .product {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  text-align: center;
+  width: 90%;
+}
+
+.product .img {
+  border-radius: 10px;
+  height: 70px;
+  margin-left: 25px;
+  width: 70px;
+}
+
+.img img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.buy .confirm {
+  width: 40%;
+}
+
+.confirm .resume {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  height: 75%;
+}
+
+.resume h3 {
+  margin-bottom: 10px;
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+.resume .product-list {
+  height: 160px;
+  margin-top: 45px;
+  overflow-x: auto;
+}
+
+.resume .product {
   align-items: center;
-}
-.texto {
-  word-break: break-all;
-}
-.dados{
-  display: flex;
-  justify-content: left;
-}
-.alterar {
-  background-color: #008000; /* alterar cor */
-  color: white;
-  padding: 5px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.alterar:hover {
-  background-color: darkgreen;
-}
-/* Pagamento */
-.payment{
-  height: 20%;
-}
-.title-payment{
-  margin-left: 1.5vw;
-  margin-top: 0.5vw;
-}
-.forma-pag{
-  margin: 1.3vw;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-left: 35px;
+  margin-right: 35px;
+  text-align: center;
 }
-/* Itens */
-.itens{
-  height: 58.5%;
-}
-.title-itens{
-  margin-left: 1.5vw;
-  margin-top: 0.5vw;
-}
-.media{
+
+.total {
+  display: flex;
   justify-content: space-between;
-  display: flex;
-  align-items: center;
+  margin: auto;
+  width: 90%;
 }
-img{
-  width: 5vh;
-  height: 5vh;
-}
-.nome-item{
-  font-size:large;
-}
-.valor-item{
-  font-size: 20px;
-}
-.remover {
-  background-color: #b40000; /* alterar cor */
-  margin-left: 20vh;
-  color: white;
-  padding: 3px 15px;
+
+.finalizar {
+  background: -webkit-linear-gradient(right, #184608, #659b08);
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  height: 70px;
+  margin-top: 30px;
+  transition: .5s ease;
+  width: 100%;
 }
-.remover:hover {
-  background-color: #810101;
-}
-/* resume */
-.resume-title{
-  margin-left: 1.5vw;
-  margin-top: 0.5vw;
-}
-/* Coupon */
-.coupon-btn {
-  background-color: #1c1c1c; /* alterar cor */
-  margin-left: 20vh;
-  color: white;
-  padding: 3px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.coupon-btn:hover {
-  background-color: #000000;
-}
-.coupom{
-  align-items: center;
-}
-.coupom > .container-content{
-  margin-top: 1.4vh;
-}
-/* Finalizar */
-.finish{
-  display: flex;
-  justify-content: center;
-}
-.finish-btn{
-  background-color: #008000; /* alterar cor */
-  color: white;
-  padding: 10px 36%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.finish-btn:hover {
-  background-color: darkgreen;
+
+.finalizar:hover {
+  background: -webkit-linear-gradient(left, #184608, #659b08);
+  box-shadow: inset 1px 5px 5px rgba(0, 0, 0, 0.356);
 }
