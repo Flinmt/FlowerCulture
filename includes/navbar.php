@@ -28,7 +28,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
             <button type="button" class="btn-close" aria-label="Close" onclick="newsLetterClose()"></button>
         </nav>
         <nav class="navbar">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../flower">
                 <img src="./assets/img/logo.svg" alt="Logo" width="55" height="55">
             </a>
             <ul class="navbar-features">
@@ -140,7 +140,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                 <span>
                     <?php echo "Total: R$ " . number_format($total, 2); ?>
                 </span>
-                <a href="#"><button class="purchase">Purchase</button></a>
+                <a href="../flower/confirmation.php"><button class="purchase">Purchase</button></a>
             </div>
         <?php
         }
